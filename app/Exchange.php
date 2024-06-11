@@ -133,7 +133,7 @@ class Exchange
         $this->saveToWallet();
     }
 
-    public function searchAndDisplay(string $symbol)
+    public function searchAndDisplay(string $symbol):void
     {
         $selectedCrypto = null;
 
@@ -143,11 +143,6 @@ class Exchange
                 $selectedCrypto = $this->crypto['data'][$key];
             }
         }
-        if ($selectedCrypto == null) {
-            echo "Error : couldn't find crypto $symbol";
-            return null;
-        }
-
         $rows = [];
         $rows[] = [
             $selectedCrypto['name'],
